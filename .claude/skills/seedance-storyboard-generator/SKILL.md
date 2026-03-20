@@ -1,6 +1,6 @@
 ---
 name: seedance-storyboard-generator
-description: Professional AI video script and storyboard generator for Seedance 2.0 platform. Use when user asks to: (1) Convert articles/stories into video scripts, (2) Generate Seedance 2.0 storyboard prompts, (3) Plan multi-episode AI video series, (4) Create character/scene/prop generation prompts for image models like Nana Banana Pro. Input can be full novels, articles, or brief story outlines. Output includes four-act script structure, episode breakdown, asset generation prompts, and Seedance 2.0 formatted storyboard scripts.
+description: Convert stories, novels, articles, folklore, or rough plot ideas into production-ready Seedance 2.0 storyboard packages. Use when Codex needs to adapt narrative material into episodic AI video scripts, break a story into 15-second episodes, generate character/scene/prop image prompts, prepare Seedance timeline prompts, or maintain continuity across a multi-episode video series.
 ---
 
 # Seedance Storyboard Generator
@@ -9,53 +9,57 @@ Expert AI script and storyboard generation system for creating professional AI v
 
 ## Workflow
 
-Follow this sequential process to convert source material into production-ready video scripts:
+Follow this sequential process to convert source material into production-ready video scripts.
 
 ### 1. Analyze Input
 
-**Determine input type:**
-- **Full text**: Complete novel/article requiring adaptation and episode segmentation
-- **Outline**: Brief story concept requiring full script development
+Determine input type:
+- Full text: complete novel or article requiring adaptation and episode segmentation
+- Outline: brief story concept requiring full script development
+- Partial draft: story notes or unfinished script that still needs structure
 
-**Extract core elements:**
-- Protagonist(s) and key characters
-- Central conflict and narrative arc
-- Setting/world-building elements
-- Key plot points and emotional beats
+Extract core elements:
+- protagonist and key characters
+- central conflict and narrative arc
+- setting and world-building elements
+- key plot points and emotional beats
 
-Ask clarifying questions if input is ambiguous or incomplete.
+Ask clarifying questions if the input is ambiguous or materially incomplete. If the user does not specify production parameters, assume sensible defaults and state them.
+
+If the input is prose and needs heavy adaptation before storyboarding, read [references/故事转视频脚本-转换工具.md](references/故事转视频脚本-转换工具.md) before drafting the episode plan.
 
 ### 2. Confirm Production Parameters
 
-**Essential questions to ask:**
+Ask for or assume these parameters:
 
-1. **Visual Style**: What visual style? (写实/动画/水墨/科幻/复古/电影感/其他)
-2. **Duration**: Total runtime? (Standard: 20 episodes × 15s each ≈ 5 minutes)
-3. **Target Platform**: Aspect ratio? (16:9横屏 / 9:16竖屏 / 2.35:1电影宽屏)
-4. **Tone**: Overall emotional tone? (史诗/温馨/悬疑/欢快/忧伤等)
+1. Visual style: 写实 / 动画 / 水墨 / 科幻 / 复古 / 电影感 / other
+2. Duration: total runtime or episode count. Default to 20 episodes x 15 seconds if the user wants a series but gives no length.
+3. Target platform: aspect ratio such as 16:9, 9:16, or 2.35:1
+4. Tone: 史诗 / 温馨 / 悬疑 / 欢快 / 忧伤 / other
 
-Document these parameters for consistent application throughout.
+Document these parameters and apply them consistently throughout the output.
 
 ### 3. Generate Four-Act Script Structure
 
-**Structure:**
-- **Act 1 (起)**: Episodes 1-5 - Introduction and inciting incident
-- **Act 2 (承)**: Episodes 6-10 - Rising action and complications
-- **Act 3 (转)**: Episodes 11-15 - Climax and confrontation
-- **Act 4 (合)**: Episodes 16-20 - Resolution and conclusion
+Structure the story as:
+- Act 1 起: Episodes 1-5, introduction and inciting incident
+- Act 2 承: Episodes 6-10, rising action and complications
+- Act 3 转: Episodes 11-15, climax and confrontation
+- Act 4 合: Episodes 16-20, resolution and conclusion
 
-**For each episode include:**
-- Episode number and title
-- Duration (standard: 15 seconds)
-- Emotional tone/mood
-- Key plot points
-- Beginning/ending frame description (for continuity)
+For each episode include:
+- episode number and title
+- duration, default 15 seconds
+- emotional tone or mood
+- key plot points
+- beginning frame description
+- ending frame description for continuity
 
-**Output format:** Markdown document with clear section headers.
+Output this section as a clean Markdown document with clear headers.
 
 ### 4. Create Asset Generation Plan
 
-**Categorize and number all visual assets:**
+Categorize and number all visual assets:
 
 | Category | Prefix | Example | Description |
 |----------|--------|---------|-------------|
@@ -63,85 +67,71 @@ Document these parameters for consistent application throughout.
 | Scenes | S01-S99 | S01 青锋山废墟 | Key locations |
 | Props | P01-P99 | P01 青锋剑 | Important objects |
 
-**Asset generation prompt format:**
-```
-### [编号] — [名称]
+Reuse the same ID whenever the same character, scene, or prop reappears.
+
+Write image-generation prompts in English after a stable style prefix.
+
+Use this format:
+
+```md
+### [编号] - [名称]
 
 [Style prefix], [detailed visual description in English], [technical specs]
-
-**Style Prefix Examples:**
-- Chinese ink wash painting style mixed with anime cel-shading
-- Cinematic photorealistic style with dramatic lighting
-- 3D Pixar-style animation rendering
-- Sci-fi cyberpunk aesthetic with neon lighting
-
-**Character differentiation:** Use distinct color schemes and visual markers for each character to ensure recognition in the chosen art style.
 ```
 
-**Output format:** Organized list with unique IDs, suitable for copy-pasting into image generators.
+Keep characters visually distinct with color, silhouette, costume, and signature props so they remain recognizable in the chosen art style.
 
 ### 5. Generate Seedance 2.0 Storyboard Scripts
 
-**For each episode, produce:**
+For each episode, produce:
 
-**a. Asset Upload List**
-```
-图片1: C01 (角色参考)
-图片2: S03 (场景参考)
-图片3: P01 (道具参考)
-```
+1. Asset upload list
+2. Seedance prompt in time-axis format
+3. Ending frame description for next-episode continuity
 
-**b. Seedance Prompt (Time-axis format)**
-```
-[风格描述]，[画幅比例]，[整体氛围]
+Use this prompt structure:
+
+```text
+[style]，[aspect ratio]，[overall mood]
 
 0-3s画面：[镜头运动]，[场景建立]，[主体引入]
 3-6s画面：[镜头运动]，[情节发展]，[动作描述]
-6-9s画面：[镜头运动]，[高潮/冲突]，[情绪爆发]
-9-12s画面：[镜头运动]，[转折/过渡]
-12-15s画面：[镜头运动]，[结尾/落版]
+6-9s画面：[镜头运动]，[高潮或冲突]，[情绪爆发]
+9-12s画面：[镜头运动]，[转折或反应]
+12-15s画面：[镜头运动]，[结尾或落版]
 
-【声音】[配乐风格] + [音效] + [对白/旁白]
-
-【参考】@图片1 [用途]，@图片2 [用途]...
+【声音】[配乐风格] + [音效] + [对白或旁白]
+【参考】@图片1 [用途]，@图片2 [用途]
 ```
 
-**c. Ending Frame Description**
-- Document the final frame content for next episode continuity
+Use these camera movement keywords when helpful: 推镜头, 拉镜头, 摇镜头, 移镜头, 跟镜头, 环绕镜头, 升降镜头, 希区柯克变焦, 一镜到底, 手持晃动。
 
-**Camera movement keywords:** 推镜头/拉镜头/摇镜头/移镜头/跟镜头/环绕镜头/升降镜头/希区柯克变焦/一镜到底/手持晃动
+For episode chaining from episode 2 onward, start with `将@视频1延长15s` when the user wants to extend the previous clip instead of generating a fresh one.
 
-**For episode chaining (Ep 2+):** Start prompt with `将@视频1延长15s` and upload previous episode as video reference.
+Read [references/seedance-manual.md](references/seedance-manual.md) when you need Seedance prompt templates, multimodal syntax, camera patterns, platform limits, or wording patterns for specific scene types.
 
 ## Output Files
 
-Generate these deliverable files:
+Generate these deliverables unless the user asks for a different packaging:
 
-1. **[Title]_剧本.md** - Complete four-act script with episode breakdown
-2. **[Title]_素材清单.md** - All character/scene/prop generation prompts
-3. **[Title]_E[XX]_分镜.md** - Individual episode storyboard scripts (or combined)
+1. `[Title]_剧本.md` - complete four-act script with episode breakdown
+2. `[Title]_素材清单.md` - all character, scene, and prop generation prompts
+3. `[Title]_E[XX]_分镜.md` - individual episode storyboard scripts, or one combined storyboard file if the user prefers
 
-## Quality Assurance
+## Validate before finishing
 
-**Before finalizing:**
-- Verify all asset references (@图片X) have corresponding IDs in asset list
-- Check episode-to episode continuity (ending frame → opening frame)
-- Ensure time-axis coverage spans complete 15 seconds
-- Validate that camera movements are feasible and logically sequenced
-
-## Reference Material
-
-For detailed Seedance 2.0 prompt patterns, templates, and best practices, see [references/seedance-manual.md](references/seedance-manual.md).
-
-Key reference sections:
-- Templates 1-16 for different video types (叙事/产品/角色/风景/战争/等)
-- Camera movement quick reference
-- Atmosphere keyword library
-- Multimodal reference syntax (@图片X, @视频X, @音频X)
+- Verify every `@图片X` or `@视频X` reference maps to a listed asset.
+- Verify episode-to-episode continuity by matching each ending frame to the next opening frame.
+- Verify the time axis covers the full clip duration without gaps.
+- Verify the same style prefix is used across all image prompts.
+- Respect common platform limits:
+  - at most 9 reference images
+  - at most 3 reference videos
+- Avoid overly long or instruction-heavy prompts when Seedance starts ignoring parts of the request.
 
 ## Common Pitfalls to Avoid
 
-1. **Sensitive words**: Seedance may reject content with certain terms. Avoid common triggers or use alternative phrasing.
-2. **Over-complex prompts**: Long prompts (300+ words) may have inconsistent instruction following. Prefer clarity over verbosity.
-3. **Missing continuity**: Always document ending frames and verify next episode starts with matching scene.
-4. **Inconsistent style**: Apply same visual style prefix to all asset generation prompts.
+- Avoid sensitive wording that can trigger platform rejection.
+- Avoid style drift between episodes and asset prompts.
+- Avoid missing ending-frame notes, because they break continuity.
+- Avoid overloading a single prompt with too many simultaneous instructions.

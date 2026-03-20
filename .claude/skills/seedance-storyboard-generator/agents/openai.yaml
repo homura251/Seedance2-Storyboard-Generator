@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seedance Storyboard Generator"
+  short_description: "Generate Seedance storyboards and shot plans"
+  default_prompt: "Use $seedance-storyboard-generator to turn this story into a Seedance episode plan with asset prompts and storyboard files."
